@@ -1,0 +1,30 @@
+server:
+    port: 8080
+spring:
+    profiles:
+        active: dev 
+        
+    datasource:
+        driver-class-name: com.mysql.jdbc.Driver
+        validation-query: SELECT 1
+        test-on-borrow: true
+        test-on-return: true
+    freemarker:
+        suffix: .html
+    jackson:
+        serialization:
+            indent_output: true
+jfish: 
+    dbm:
+        modelPackagesToScan: org.onetwo4j.sample.model
+    mvc: 
+        mediaType:
+            json: application/json
+            xls: application/vnd.ms-excel
+            xml: application/xml
+
+business:
+    registerCode:
+        validInSeconds: 120
+    app:
+        distDir: G:/temp/appfiles
