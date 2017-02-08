@@ -210,9 +210,10 @@
 		        <version>${onetwo.version}</version>
 	            <type>pom</type>
 	            <scope>import</scope>
-	        </dependency>
+	        </dependency> 
 	    </dependencies>
     </dependencyManagement>
+    
 	
 	<profiles>
 	   <profile>
@@ -302,6 +303,13 @@
 
 	
 	<repositories>
+	    <repository>
+             <id>oss</id>
+             <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+	    </repository>
 		<repository>
 			<id>spring-snapshots</id>
 			<name>Spring Snapshots</name>
