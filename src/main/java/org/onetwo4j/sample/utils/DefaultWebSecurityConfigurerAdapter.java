@@ -1,7 +1,7 @@
 package org.onetwo4j.sample.utils;
 
 import org.onetwo.boot.module.security.BootSecurityConfig;
-import org.onetwo.ext.security.AjaxAuthenticationHandler;
+import org.onetwo.ext.security.ajax.AjaxAuthenticationHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
