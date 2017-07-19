@@ -1,4 +1,4 @@
-<@extends parent="application.html">
+<@extends parent="easyui-js.html">
     
     <@override name="charset">
         <meta charset="UTF-8">
@@ -10,15 +10,10 @@
     <@override name="main-content">
         
         <div class="absoluteCenter">
-        ${helper.requestUrl}
+        ${path} 出错啦！
         <hr/>
-        ${error}
-        ${message}
-        ${status}
-        ${exception}
-        ${errors}
-        ${trace}
-        ${path}
+        ${status} - ${error}<br/>
+        ${message}<br/>
         </div>
         
     </@override>

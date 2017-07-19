@@ -54,6 +54,16 @@
           <artifactId>onetwo-boot</artifactId>
         </dependency>
         
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+        </dependency>
+        
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+        </dependency>
+        
 	    <dependency>
            <groupId>org.javassist</groupId>
 	       <artifactId>javassist</artifactId>
@@ -98,6 +108,12 @@
             <artifactId>mail</artifactId>
         </dependency>
 
+        <!-- for ftl -->
+        <dependency>
+             <groupId>org.springframework</groupId>
+             <artifactId>spring-context-support</artifactId>
+        </dependency>
+        
         <dependency>
           <groupId>org.springframework.data</groupId>
           <artifactId>spring-data-commons</artifactId>
@@ -205,19 +221,64 @@
     </dependencyManagement>
     
 	
-	<profiles>
-	   <profile>
-	    <id>integration</id>
-	    <properties>
-	      <unit-tests.skip>false</unit-tests.skip>
-	       <integration-tests.skip>false</integration-tests.skip>
-	    </properties>
-	  </profile>
-	</profiles>
+    
+    <profiles>
+        <profile>
+            <id>dev</id>
+            <properties>
+                <env>dev</env>
+                <log.path>../logs/${artifactId}.%d{yyyy-MM-dd}.log</log.path>
+                <access.log.path>../logs/${artifactId}.access.%d{yyyy-MM-dd}.log</access.log.path>
+            </properties>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+        <profile>
+            <id>test</id>
+            <properties>
+                <env>test</env>
+                <log.path>/data/logs/${artifactId}.%d{yyyy-MM-dd}.log</log.path>
+                <access.log.path>/data/logs/${artifactId}.access.%d{yyyy-MM-dd}.log</access.log.path>
+            </properties>
+        </profile>
+        <profile>
+            <id>product</id>
+            <properties>
+                <env>product</env>
+                <log.path>/data/logs/${artifactId}.%d{yyyy-MM-dd}.log</log.path>
+                <access.log.path>/data/logs/${artifactId}.access.%d{yyyy-MM-dd}.log</access.log.path>
+            </properties>
+        </profile>
+       <profile>
+        <id>integration</id>
+        <properties>
+          <unit-tests.skip>false</unit-tests.skip>
+           <integration-tests.skip>false</integration-tests.skip>
+        </properties>
+      </profile>
+    </profiles>
 	
 	<build>
 		<finalName>${artifactId}-${version}</finalName>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
 		<plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                 <artifactId>maven-resources-plugin</artifactId>
+                 <!-- <version>2.6</version> -->
+                 <configuration>
+                    <delimiters>
+                       <delimiter>@{*}</delimiter>
+                    </delimiters>
+                    <useDefaultDelimiters>false</useDefaultDelimiters>
+                 </configuration> 
+            </plugin>
 			<plugin>
 	            <groupId>org.apache.maven.plugins</groupId>
 	            <artifactId>maven-compiler-plugin</artifactId>
@@ -245,20 +306,11 @@
 			    </dependencies>
 			</plugin>
 			
-			<plugin>
-                <groupId>org.mybatis.generator</groupId>
-                <artifactId>mybatis-generator-maven-plugin</artifactId>
-                <version>1.3.2</version>
+            <plugin>
+                <artifactId>maven-war-plugin</artifactId>
                 <configuration>
-                    <overwrite>true</overwrite>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
                 </configuration>
-                <dependencies>
-			         <dependency>
-			            <groupId>mysql</groupId>
-			            <artifactId>mysql-connector-java</artifactId>
-			            <version>5.1.35</version>
-			        </dependency> 
-                </dependencies>
             </plugin>
             
             <!-- for test -->
