@@ -1,4 +1,4 @@
-package org.onetwo4j.sample.utils;
+package org.onetwo4j.sample.util;
 
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;

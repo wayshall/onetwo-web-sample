@@ -1,4 +1,4 @@
-package org.onetwo4j.sample.utils;
+package org.onetwo4j.sample.util;
 
 import org.onetwo.boot.module.security.BootSecurityConfig;
 import org.onetwo.ext.security.ajax.AjaxAuthenticationHandler;

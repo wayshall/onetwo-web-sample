@@ -7,7 +7,7 @@ import javax.annotation.Resource;
 
 import org.onetwo4j.sample.model.User;
 import org.onetwo4j.sample.service.UserServiceImpl;
-import org.onetwo4j.sample.utils.WebConstants;
+import org.onetwo4j.sample.util.WebConstants;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;

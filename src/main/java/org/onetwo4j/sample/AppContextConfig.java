@@ -1,7 +1,7 @@
 package org.onetwo4j.sample;
 
 import org.onetwo.boot.module.security.config.EnableCommonSecurity;
-import org.onetwo4j.sample.utils.DefaultWebSecurityConfigurerAdapter;
+import org.onetwo4j.sample.util.DefaultWebSecurityConfigurerAdapter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

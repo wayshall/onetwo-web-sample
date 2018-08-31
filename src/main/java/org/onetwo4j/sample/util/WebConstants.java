@@ -1,4 +1,4 @@
-package org.onetwo4j.sample.utils;
+package org.onetwo4j.sample.util;
 
 public abstract class WebConstants {
 	
